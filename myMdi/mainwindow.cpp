@@ -128,7 +128,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
     // 创建信号映射器
     windowMapper = new QSignalMapper(this);
     // 映射器重新发送信号，根据信号设置活动窗口
-    connect(windowMapper, SIGNAL(mapped(QWidget*)), this, SLOT(updateWindowMenu()));
+    connect(windowMapper, SIGNAL(mapped(QWidget*)), this, SLOT(setActiveSubWindow(QWidget*)));
     // 更新窗口菜单，并且设置当窗口菜单将要显示的时候更新窗口菜单
     updateWindowMenu();
     connect(ui->menuW, SIGNAL(aboutToShow()), this, SLOT(updateWindowMenu()));
